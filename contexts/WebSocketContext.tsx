@@ -174,14 +174,9 @@ export function WebSocketProvider({ children }: { children: React.ReactNode }) {
       };
 
       ws.onerror = (error) => {
-        // Suppress browser extension errors (they're not real errors)
-        const errorMessage = error?.message || '';
-        if (errorMessage.includes('Receiving end does not exist') || 
-            errorMessage.includes('message channel closed')) {
-          // These are browser extension errors, ignore them
-          return;
-        }
-        
+        // WebSocket error event - log for debugging
+        // Note: Event type doesn't have a message property
+        // Browser extension errors are typically caught elsewhere
         console.error('WebSocket error:', error);
         console.error('WebSocket URL:', WS_URL);
         isConnectingRef.current = false;
