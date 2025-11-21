@@ -26,6 +26,7 @@ interface Match {
     draw?: number;
     awayWin: number;
   };
+  liveEvents?: any[];
 }
 
 export default function DashboardPage() {
