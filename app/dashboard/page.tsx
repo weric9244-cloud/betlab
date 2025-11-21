@@ -66,7 +66,7 @@ export default function DashboardPage() {
               score: update.score || match.score,
               status: update.status || match.status,
               odds: update.odds || match.odds,
-              liveEvents: update.events || match.liveEvents
+              liveEvents: update.events || match.liveEvents || []
             };
           }
           return match;
